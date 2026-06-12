@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte - O Futuro Sustentável</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        :root {
+            --verde-principal: #1b4332;
+            --verde-campo: #2d6a4f;
+            --verde-claro: #d8f3dc;
+            --terra: #b69651;
+            --terra-escura: #a65d1e;
+            --palha: #fefae0;
+            --fundo-suave: #ffffff; 
+            --texto-escuro: #2b2d42;
+        }
+
+        body {
+            background-color: var(--fundo-suave);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Adiciona rolagem suave ao clicar no menu */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--verde-principal), #143225);
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--terra);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--terra);
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #e5e5e5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--palha);
+            border-bottom: 2px solid var(--terra);
+        }
+
+        /* Banner Principal */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1605000797499-95a51c7769ae?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+            color: var(--palha);
+            font-weight: 400;
+        }
+
+        .btn-cta {
+            background-color: var(--terra);
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px; 
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--terra-escura);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Seção Sobre / Conceito */
+        .sobre {
+            width: 90%;
+            max-width: 900px;
+            margin: 80px auto 50px auto;
+            text-align: center;
+        }
+
+        .sobre h2 {
+            color: var(--verde-principal);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .sobre h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--terra);
+            margin: 10px auto 0 auto;
+        }
+
+        .sobre p {
+            color: #4a4e69;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Pilares */
+        .info-sustentavel {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card-info-sustentavel {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid var(--verde-campo); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s;
+        }
+
+        .card-info-sustentavel:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-info-sustentavel h3 {
+            color: var(--verde-principal);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .card-info-sustentavel p {
+            color: #5c677d;
+            font-size: 1rem;
+        }
+
+        /* Seção de Produtos */
+        .produtos-section {
+            background-color: #f0f4f1; 
+            padding: 80px 0;
+            border-top: 1px solid #e0e7e1;
+            border-bottom: 1px solid #e0e7e1;
+        }
+
+        .produtos-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .produtos-container h2 {
+            text-align: center;
+            color: var(--verde-principal);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card-produto {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+        }
+
+        .card-textos {
+            margin-bottom: 20px;
+        }
+
+        .card-info h3 {
+            color: var(--verde-principal);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .card-info p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .tag-sustentavel {
+            background-color: var(--palha);
+            color: #606c38;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 1px solid #dda15e;
+        }
+
+        .preco {
+            font-size: 1.6rem;
+            color: var(--verde-campo);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .preco small {
+            font-size: 1rem;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .btn-comprar {
+            background-color: var(--verde-campo);
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: block;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn-comprar:hover {
+            background-color: var(--verde-principal);
+        }
+
+        /* Seção de Métricas */
+        .site-info-section {
+            background-color: var(--verde-principal);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(27, 67, 50, 0.9), rgba(27, 67, 50, 0.95)), url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-top: 4px solid var(--terra);
+        }
+
+        .site-info-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .site-info-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .site-info-container > p {
+            color: var(--verde-claro);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.15rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-card h3 {
+            font-size: 3rem;
+            color: var(--terra);
+            margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .metric-card p {
+            font-size: 1.1rem;
+            color: var(--palha);
+            font-weight: 500;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0b1f16;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: #a3b19b;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero-content h2 {
+                font-size: 2.3rem;
+            }
+            .hero {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Agro<span>Forte</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#informacoes">Pilares Ambientais</a></li>
+                    <li><a href="#produtos">Tecnologias</a></li>
+                    <li><a href="#sobre-nos">Nossos Dados</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>O Futuro da Agricultura é Sustentável</h2>
+            <p>Unindo a força da terra com a tecnologia de amanhã para alimentar o mundo preservando o nosso planeta.</p>
+            <a href="#produtos" class="btn-cta">Conhecer Soluções rurais</a>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <h2>Agro Forte, Terra Viva</h2>
+        <p>Acreditamos que a produtividade máxima e o respeito ao meio ambiente caminham juntos. Nossas soluções trazem inovação biológica, inteligência artificial e otimização de recursos para transformar a produção agrícola no pilar fundamental do futuro.</p>
+    </section>
+
+    <section class="info-sustentavel" id="informacoes">
+        <div class="grid-info">
+            <div class="card-info-sustentavel">
+                <h3>Preservação do Solo</h3>
+                <p>Práticas sustentáveis evitam a erosão e a exaustão de nutrientes através da rotação de culturas e do uso de biofertilizantes biológicos que mantêm a microbiota da terra activa.</p>
+            </div>
+            <div class="card-info-sustentavel">
+                <h3>Eficiência Hídrica</h3>
+                <p>A agricultura inteligente utiliza sensores IoT para irrigar apenas quando necessário, reduzindo drasticamente o desperdício de água potável nos lençóis freáticos.</p>
+            </div>
+            <div class="card-info-sustentavel">
+                <h3>Redução de Carbono</h3>
+                <p>O uso de maquinários elétricos, drones de precisão e fontes de energia solar integradas ajuda a diminuir a pegada de carbono emitida pelas grandes lavouras.</p>
+            </div>
+            <div class="card-info-sustentavel">
+                <h3>Biodiversidade Protegida</h3>
+                <p>A substituição de defensivos químicos agressivos por barreiras e predadores biológicos naturais protege polinizadores essenciais como as abelhas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="produtos-section" id="produtos">
+        <div class="produtos-container">
+            <h2>Soluções para o Campo</h2>
+            
+            <div class="grid-produtos">
+                
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" alt="Biofertilizante Inteligente">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">100% Orgânico</span>
+                            <h3>Biofertilizante Regenerativo</h3>
+                            <p>Nutrição de alta performance baseada em microrganismos vivos que recuperam o solo enquanto alimentam a plantação.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 149,90 <small>/un</small></div>
+                            <button class="btn-comprar" data-produto="Biofertilizante Regenerativo">Solicitar Orçamento</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80" alt="Sensor de Umidade e Nutrientes">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Zero Desperdício</span>
+                            <h3>Sensor de Solo IoT - GeoGreen</h3>
+                            <p>Monitore a umidade, PH e nutrientes em tempo real direto no celular. Economia de até 40% de água na irrigação.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 389,00</div>
+                            <button class="btn-comprar" data-produto="Sensor de Solo IoT - GeoGreen">Comprar Tecnologia</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=500&q=80" alt="Sementes Selecionadas">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Alta Resistência</span>
+                            <h3>Sementes Clima-Adaptáveis</h3>
+                            <p>Sementes desenvolvidas com melhoramento genético natural para resistir a períodos de seca prolongada sem perder produtividade.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 210,00 <small>/sc</small></div>
+                            <button class="btn-comprar" data-produto="Sementes Clima-Adaptáveis">Ver Variedades</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500&q=80" alt="Painel Solar Agrícola">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Energia Limpa</span>
+                            <h3>Kit Irrigação Solar Autônomo</h3>
+                            <p>Sistema completo de bombeamento de água movido a energia solar. Independência energética total para sua lavoura.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 2.450,00</div>
+                            <button class="btn-comprar" data-produto="Kit Irrigação Solar Autônomo">Solicitar Projeto</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=500&q=80" alt="Drone de Pulverização">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Precisão IA</span>
+                            <h3>Drone Agrícola FlyCrop v4</h3>
+                            <p>Mapeamento térmico e aplicação localizada de bioinsumos. Reduza o uso de defensivos aplicando apenas onde é necessário.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 12.800,00</div>
+                            <button class="btn-comprar" data-produto="Drone Agrícola FlyCrop v4">Falar com Consultor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1532467411038-57680e3dc031?auto=format&fit=crop&w=500&q=80" alt="Defensivo Biológico">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Protetor Natural</span>
+                            <h3>Defensivo Biológico BioShield</h3>
+                            <p>Controle de pragas feito por predadores naturais e fungos benéficos. Proteção máxima sem agredir a fauna local.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 185,00 <small>/L</small></div>
+                            <button class="btn-comprar" data-produto="Defensivo Biológico BioShield">Adquirir Solução</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=500&q=80" alt="Composteira Automatizada">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Reciclagem</span>
+                            <h3>Composteira Industrial</h3>
+                            <p>Transforme resíduos orgânicos da colheita em adubo rico em poucas semanas com controle térmico automatizado.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 4.120,00</div>
+                            <button class="btn-comprar" data-produto="Composteira Industrial">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1621460245084-245459325983?auto=format&fit=crop&w=500&q=80" alt="Hidroponia Vertical">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Otimização</span>
+                            <h3>Hidroponia Vertical</h3>
+                            <p>Cultivo de folhosas em camadas otimizadas por luzes LED específicas, ideal para estufas rurais e minifúndios modernos.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 890,00 <small>/módulo</small></div>
+                            <button class="btn-comprar" data-produto="Hidroponia Vertical">Montar Projeto</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Estação Meteorológica">
+                    <div class="card-info">
+                        <div class="card-textos">
+                            <span class="tag-sustentavel">Previsão Local</span>
+                            <h3>Estação AgroRadar</h3>
+                            <p>Monitore pressão, vento e previsão de chuvas direto na sua coordenada geográfica para programar colheitas perfeitas.</p>
+                        </div>
+                        <div>
+                            <div class="preco">R$ 1.150,00</div>
+                            <button class="btn-comprar" data-produto="Estação AgroRadar">Adquirir Estação</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="site-info-section" id="sobre-nos">
+        <div class="site-info-container">
+            <h2>Nosso Impacto no Campo</h2>
+            <p>A AgroForte não é apenas uma plataforma de tecnologia, somos parceiros de verdade do produtor rural na transição para um modelo sustentável e altamente rentável.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>+1.2M</h3>
+                    <p>Hectares Monitorados</p>
+                </div>
+                <div class="metric-card">
+                    <h3>45%</h3>
+                    <p>De Economia de Água</p>
+                </div>
+                <div class="metric-card">
+                    <h3>15 mil</h3>
+                    <p>Produtores Atendidos</p>
+                </div>
+                <div class="metric-card">
+                    <h3>-30%</h3>
+                    <p>Emissão de Carbono</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AgroForte Sustentável. Cultivando inovação, colhendo o amanhã de nossas terras.</p>
+    </footer>
+
+    <script>
+        // Seleciona todos os botões de compra/solicitação dos cards
+        const botoesComprar = document.querySelectorAll('.btn-comprar');
+
+        // Adiciona um evento de clique para cada um deles
+        botoesComprar.forEach(botao => {
+            botao.addEventListener('click', function() {
+                // Pega o nome do produto salvo no atributo "data-produto"
+                const nomeProduto = this.getAttribute('data-produto');
+                
+                // Exibe uma mensagem personalizada para o usuário
+                alert(`Obrigado pelo interesse no produto: ${nomeProduto}!\n\nNossa equipe de consultores da AgroForte entrará em contato em breve para dar andamento ao seu pedido.`);
+            });
+        });
+    </script>
+
+</body>
+</html>
